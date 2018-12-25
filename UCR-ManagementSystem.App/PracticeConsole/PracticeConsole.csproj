@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17B61B74-46E1-4E1E-9D50-1F606CE5CD3F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{2E75D166-8581-4B88-8E55-6C839ADDDEEE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UCR_ManagementSystem.DatabaseContexts</RootNamespace>
-    <AssemblyName>UCR-ManagementSystem.DatabaseContexts</AssemblyName>
+    <RootNamespace>PracticeConsole</RootNamespace>
+    <AssemblyName>PracticeConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -46,41 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseContext\UCRMSystemDbContext.cs" />
-    <Compile Include="Migrations\201812172027500_InitialCreate.cs" />
-    <Compile Include="Migrations\201812172027500_InitialCreate.Designer.cs">
-      <DependentUpon>201812172027500_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UCR-ManagementSystem.BLL\UCR-ManagementSystem.BLL.csproj">
+      <Project>{e69b5ac8-5ae9-46c8-80d2-e0221c1b37fc}</Project>
+      <Name>UCR-ManagementSystem.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UCR-ManagementSystem.DAL\UCR-ManagementSystem.DAL.csproj">
+      <Project>{ded20abc-a894-43d4-a616-4a460385733b}</Project>
+      <Name>UCR-ManagementSystem.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UCR-ManagementSystem.DatabaseContexts\UCR-ManagementSystem.DatabaseContexts.csproj">
+      <Project>{17b61b74-46e1-4e1e-9d50-1f606ce5cd3f}</Project>
+      <Name>UCR-ManagementSystem.DatabaseContexts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UCR-ManagementSystem.Models\UCR-ManagementSystem.Models.csproj">
       <Project>{2cbad2b5-03ee-4351-b176-cbdb7d1b01b0}</Project>
       <Name>UCR-ManagementSystem.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="Accessibility">
-      <Guid>{1EA4DBF0-3C3B-11CF-810C-00AA00389B71}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>1</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812172027500_InitialCreate.resx">
-      <DependentUpon>201812172027500_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
